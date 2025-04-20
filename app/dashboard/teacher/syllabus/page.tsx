@@ -68,13 +68,13 @@ export default function SyllabusPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Create Syllabus
+            Buat Silabus
           </h1>
-          <p className="text-muted-foreground mt-1">Design a comprehensive syllabus for your class</p>
+          <p className="text-muted-foreground mt-1">Rancang silabus komprehensif untuk kelas Anda</p>
         </div>
         <Button className="gap-2">
           <Sparkles className="h-4 w-4" />
-          Generate with AI
+          Buat dengan AI
         </Button>
       </div>
 
@@ -82,11 +82,11 @@ export default function SyllabusPage() {
         <TabsList className="grid w-full max-w-md grid-cols-2 mb-6">
           <TabsTrigger value="form" className="flex items-center gap-2">
             <FileText className="h-4 w-4" />
-            Create Syllabus
+            Buat Silabus
           </TabsTrigger>
           <TabsTrigger value="preview" className="flex items-center gap-2">
             <BookOpen className="h-4 w-4" />
-            Preview
+            Pratinjau
           </TabsTrigger>
         </TabsList>
 
@@ -95,9 +95,9 @@ export default function SyllabusPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-primary" />
-                New Syllabus
+                Silabus Baru
               </CardTitle>
-              <CardDescription>Fill in the details to create a comprehensive syllabus</CardDescription>
+              <CardDescription>Isi detail untuk membuat silabus yang komprehensif</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -105,11 +105,11 @@ export default function SyllabusPage() {
                 <div className="bg-muted/30 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <FileText className="h-4 w-4 text-primary" />
-                    Basic Information
+                    Informasi Dasar
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
+                      <Label htmlFor="subject">Mata Pelajaran</Label>
                       <Input
                         id="subject"
                         name="subject"
@@ -120,10 +120,10 @@ export default function SyllabusPage() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="grade">Grade</Label>
+                      <Label htmlFor="grade">Kelas</Label>
                       <Select value={formData.grade} onValueChange={(value) => handleSelectChange(value, "grade")}>
                         <SelectTrigger className="border-primary/20 focus-visible:ring-primary/30">
-                          <SelectValue placeholder="Select grade" />
+                          <SelectValue placeholder="Pilih kelas" />
                         </SelectTrigger>
                         <SelectContent>
                           {[1, 2, 3, 4, 5, 6].map((grade) => (
@@ -141,7 +141,7 @@ export default function SyllabusPage() {
                         onValueChange={(value) => handleSelectChange(value, "semester")}
                       >
                         <SelectTrigger className="border-primary/20 focus-visible:ring-primary/30">
-                          <SelectValue placeholder="Select semester" />
+                          <SelectValue placeholder="Pilih semester" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="1">Semester 1</SelectItem>
@@ -150,7 +150,7 @@ export default function SyllabusPage() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="academicYear">Academic Year</Label>
+                      <Label htmlFor="academicYear">Tahun Ajaran</Label>
                       <Input
                         id="academicYear"
                         name="academicYear"
@@ -168,39 +168,39 @@ export default function SyllabusPage() {
                 <div className="bg-muted/30 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <Users className="h-4 w-4 text-primary" />
-                    Competencies
+                    Kompetensi
                   </h3>
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="coreCompetencies">Core Competencies (KI)</Label>
+                      <Label htmlFor="coreCompetencies">Kompetensi Inti (KI)</Label>
                       <Textarea
                         id="coreCompetencies"
                         name="coreCompetencies"
                         value={formData.coreCompetencies}
                         onChange={handleInputChange}
-                        placeholder="Develop students' critical and creative thinking abilities."
+                        placeholder="Kembangkan kemampuan berpikir kritis dan kreatif siswa."
                         className="min-h-[100px] border-primary/20 focus-visible:ring-primary/30"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="basicCompetencies">Basic Competencies (KD)</Label>
+                      <Label htmlFor="basicCompetencies">Kompetensi Dasar (KD)</Label>
                       <Textarea
                         id="basicCompetencies"
                         name="basicCompetencies"
                         value={formData.basicCompetencies}
                         onChange={handleInputChange}
-                        placeholder="Understand basic concepts of multiplication and division."
+                        placeholder="Memahami konsep dasar perkalian dan pembagian."
                         className="min-h-[100px] border-primary/20 focus-visible:ring-primary/30"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="indicators">Competency Achievement Indicators</Label>
+                      <Label htmlFor="indicators">Indikator Pencapaian Kompetensi</Label>
                       <Textarea
                         id="indicators"
                         name="indicators"
                         value={formData.indicators}
                         onChange={handleInputChange}
-                        placeholder="Students can accurately solve simple multiplication problems."
+                        placeholder="Siswa dapat menyelesaikan soal perkalian sederhana dengan tepat."
                         className="min-h-[100px] border-primary/20 focus-visible:ring-primary/30"
                       />
                     </div>
@@ -211,11 +211,11 @@ export default function SyllabusPage() {
                 <div className="bg-muted/30 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <BookOpen className="h-4 w-4 text-primary" />
-                    Content & Learning
+                    Konten & Pembelajaran
                   </h3>
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="mainTopics">Main Topics</Label>
+                      <Label htmlFor="mainTopics">Topik Utama</Label>
                       <Textarea
                         id="mainTopics"
                         name="mainTopics"
@@ -225,7 +225,7 @@ export default function SyllabusPage() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="learningActivities">Learning Activities</Label>
+                      <Label htmlFor="learningActivities">Kegiatan Pembelajaran</Label>
                       <Textarea
                         id="learningActivities"
                         name="learningActivities"
@@ -235,7 +235,7 @@ export default function SyllabusPage() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="assessmentMethods">Assessment Methods</Label>
+                      <Label htmlFor="assessmentMethods">Metode Penilaian</Label>
                       <Textarea
                         id="assessmentMethods"
                         name="assessmentMethods"
@@ -251,28 +251,28 @@ export default function SyllabusPage() {
                 <div className="bg-muted/30 p-4 rounded-lg">
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <Clock className="h-4 w-4 text-primary" />
-                    Additional Information
+                    Informasi Tambahan
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="timeAllocation">Time Allocation</Label>
+                      <Label htmlFor="timeAllocation">Alokasi Waktu</Label>
                       <Input
                         id="timeAllocation"
                         name="timeAllocation"
                         value={formData.timeAllocation}
                         onChange={handleInputChange}
-                        placeholder="2 × 35 minutes"
+                        placeholder="2 × 35 menit"
                         className="border-primary/20 focus-visible:ring-primary/30"
                       />
                     </div>
                     <div className="space-y-2 md:col-span-2">
-                      <Label htmlFor="learningResources">Learning Resources</Label>
+                      <Label htmlFor="learningResources">Sumber Belajar</Label>
                       <Textarea
                         id="learningResources"
                         name="learningResources"
                         value={formData.learningResources}
                         onChange={handleInputChange}
-                        placeholder="Elementary Math textbook, interactive learning media, teaching aids."
+                        placeholder="Buku teks Matematika SD, media pembelajaran interaktif, alat peraga."
                         className="min-h-[100px] border-primary/20 focus-visible:ring-primary/30"
                       />
                     </div>
@@ -284,12 +284,12 @@ export default function SyllabusPage() {
                     {isGenerating ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Generating Syllabus...
+                        Membuat Silabus...
                       </>
                     ) : (
                       <>
                         <Save className="h-4 w-4" />
-                        Generate Syllabus
+                        Buat Silabus
                       </>
                     )}
                   </Button>
@@ -304,22 +304,22 @@ export default function SyllabusPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-primary" />
-                Syllabus Preview
+                Pratinjau Silabus
               </CardTitle>
-              <CardDescription>Review your generated syllabus before saving</CardDescription>
+              <CardDescription>Tinjau silabus yang telah dibuat sebelum menyimpan</CardDescription>
             </CardHeader>
             <CardContent>
               {formData.subject ? (
                 <div className="space-y-6">
                   <div className="bg-muted/30 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-4">Basic Information</h3>
+                    <h3 className="text-lg font-semibold mb-4">Informasi Dasar</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-sm font-medium">Subject:</p>
+                        <p className="text-sm font-medium">Mata Pelajaran:</p>
                         <p className="text-sm">{formData.subject}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Grade:</p>
+                        <p className="text-sm font-medium">Kelas:</p>
                         <p className="text-sm">{formData.grade}</p>
                       </div>
                       <div>
@@ -327,75 +327,75 @@ export default function SyllabusPage() {
                         <p className="text-sm">{formData.semester === "1" ? "Semester 1" : "Semester 2"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Academic Year:</p>
+                        <p className="text-sm font-medium">Tahun Ajaran:</p>
                         <p className="text-sm">{formData.academicYear}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-muted/30 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-4">Competencies</h3>
+                    <h3 className="text-lg font-semibold mb-4">Kompetensi</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm font-medium">Core Competencies (KI):</p>
-                        <p className="text-sm">{formData.coreCompetencies || "Not specified"}</p>
+                        <p className="text-sm font-medium">Kompetensi Inti (KI):</p>
+                        <p className="text-sm">{formData.coreCompetencies || "Belum ditentukan"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Basic Competencies (KD):</p>
-                        <p className="text-sm">{formData.basicCompetencies || "Not specified"}</p>
+                        <p className="text-sm font-medium">Kompetensi Dasar (KD):</p>
+                        <p className="text-sm">{formData.basicCompetencies || "Belum ditentukan"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Competency Achievement Indicators:</p>
-                        <p className="text-sm">{formData.indicators || "Not specified"}</p>
+                        <p className="text-sm font-medium">Indikator Pencapaian Kompetensi:</p>
+                        <p className="text-sm">{formData.indicators || "Belum ditentukan"}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-muted/30 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-4">Content & Learning</h3>
+                    <h3 className="text-lg font-semibold mb-4">Konten & Pembelajaran</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm font-medium">Main Topics:</p>
-                        <p className="text-sm">{formData.mainTopics || "Not specified"}</p>
+                        <p className="text-sm font-medium">Topik Utama:</p>
+                        <p className="text-sm">{formData.mainTopics || "Belum ditentukan"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Learning Activities:</p>
-                        <p className="text-sm">{formData.learningActivities || "Not specified"}</p>
+                        <p className="text-sm font-medium">Kegiatan Pembelajaran:</p>
+                        <p className="text-sm">{formData.learningActivities || "Belum ditentukan"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Assessment Methods:</p>
-                        <p className="text-sm">{formData.assessmentMethods || "Not specified"}</p>
+                        <p className="text-sm font-medium">Metode Penilaian:</p>
+                        <p className="text-sm">{formData.assessmentMethods || "Belum ditentukan"}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-muted/30 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-4">Additional Information</h3>
+                    <h3 className="text-lg font-semibold mb-4">Informasi Tambahan</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm font-medium">Time Allocation:</p>
-                        <p className="text-sm">{formData.timeAllocation || "Not specified"}</p>
+                        <p className="text-sm font-medium">Alokasi Waktu:</p>
+                        <p className="text-sm">{formData.timeAllocation || "Belum ditentukan"}</p>
                       </div>
                       <div>
-                        <p className="text-sm font-medium">Learning Resources:</p>
-                        <p className="text-sm">{formData.learningResources || "Not specified"}</p>
+                        <p className="text-sm font-medium">Sumber Belajar:</p>
+                        <p className="text-sm">{formData.learningResources || "Belum ditentukan"}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="text-center py-12 text-muted-foreground">
-                  No syllabus data to preview. Please fill out the form first.
+                  Tidak ada data silabus untuk dipratinjau. Silakan isi formulir terlebih dahulu.
                 </div>
               )}
             </CardContent>
             <CardFooter className="flex justify-end gap-4 border-t p-6">
               <Button variant="outline" onClick={() => setActiveTab("form")}>
-                Edit Syllabus
+                Edit Silabus
               </Button>
               <Button className="gap-2">
                 <Save className="h-4 w-4" />
-                Save Syllabus
+                Simpan Silabus
               </Button>
             </CardFooter>
           </Card>
