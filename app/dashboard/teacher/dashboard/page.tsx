@@ -65,8 +65,8 @@ export default function TeacherDashboardOverview() {
 
       if (result.success) {
         toast({
-          title: "Attendance Recorded",
-          description: "Your attendance has been successfully recorded.",
+          title: "Kehadiran Dicatat",
+          description: "Kehadiran Anda telah berhasil dicatat.",
           variant: "default",
         })
 
@@ -79,7 +79,7 @@ export default function TeacherDashboardOverview() {
       } else {
         toast({
           title: "Error",
-          description: result.error || "Failed to record attendance",
+          description: result.error || "Gagal mencatat kehadiran",
           variant: "destructive",
         })
       }
@@ -87,7 +87,7 @@ export default function TeacherDashboardOverview() {
       console.error("Error submitting attendance:", error)
       toast({
         title: "Error",
-        description: "An unexpected error occurred",
+        description: "Terjadi kesalahan yang tidak terduga",
         variant: "destructive",
       })
     }
@@ -97,27 +97,27 @@ export default function TeacherDashboardOverview() {
   const activities = [
     {
       icon: <ImageIcon className="h-8 w-8 p-1.5 bg-blue-100 text-blue-600 rounded-full" />,
-      title: "Science Lab Photos Uploaded",
-      description: "You uploaded 12 new photos from yesterday's science experiment",
-      time: "2 hours ago",
+      title: "Foto Laboratorium Ilmiah Diunggah",
+      description: "Anda mengunggah 12 foto baru dari eksperimen ilmiah kemarin",
+      time: "2 jam yang lalu",
     },
     {
       icon: <FileText className="h-8 w-8 p-1.5 bg-purple-100 text-purple-600 rounded-full" />,
-      title: "Mathematics Lesson Plan Updated",
-      description: "You made changes to the Algebra lesson plan for Grade 10",
-      time: "Yesterday",
+      title: "Rencana Pembelajaran Matematika Diperbarui",
+      description: "Anda melakukan perubahan pada rencana pembelajaran Aljabar untuk kelas 10",
+      time: "Kemarin",
     },
     {
       icon: <Users className="h-8 w-8 p-1.5 bg-green-100 text-green-600 rounded-full" />,
-      title: "Attendance Recorded",
-      description: "You marked attendance for Class 9A - 24 present, 1 absent",
-      time: "Yesterday",
+      title: "Kehadiran Dicatat",
+      description: "Anda mencatat kehadiran untuk kelas 9A - 24 hadir, 1 tidak hadir",
+      time: "Kemarin",
     },
     {
       icon: <MessageSquare className="h-8 w-8 p-1.5 bg-amber-100 text-amber-600 rounded-full" />,
-      title: "Parent Communication",
-      description: "You sent progress reports to 5 parents",
-      time: "2 days ago",
+      title: "Komunikasi Orang Tua",
+      description: "Anda mengirim laporan kemajuan kepada 5 orang tua",
+      time: "2 hari yang lalu",
     },
   ]
 
@@ -126,7 +126,7 @@ export default function TeacherDashboardOverview() {
     return (
       <div className="p-8 flex flex-col items-center justify-center min-h-[50vh]">
         <div className="h-10 w-10 rounded-full border-4 border-primary border-r-transparent animate-spin mb-4"></div>
-        <p className="text-muted-foreground">Loading dashboard...</p>
+        <p className="text-muted-foreground">Memuat dashboard...</p>
       </div>
     )
   }
@@ -136,16 +136,16 @@ export default function TeacherDashboardOverview() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Dashboard Overview
+            Ringkasan Dashboard
           </h1>
-          <p className="text-muted-foreground mt-1">Welcome back! Here's what's happening today.</p>
+          <p className="text-muted-foreground mt-1">Selamat datang kembali! Berikut adalah aktivitas hari ini.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <SelfieAttendance teacherId={teacherId} onSuccess={handleAttendanceSuccess} />
           <Button asChild variant="outline" className="gap-2">
             <Link href="/dashboard/teacher/attendance">
               <Users className="h-4 w-4" />
-              Manage Attendance
+              Kelola Kehadiran
             </Link>
           </Button>
           <Button
@@ -154,7 +154,7 @@ export default function TeacherDashboardOverview() {
           >
             <Link href="/dashboard/teacher/photos">
               <ImageIcon className="h-4 w-4" />
-              Upload Photos
+              Unggah Foto
             </Link>
           </Button>
         </div>
@@ -166,19 +166,19 @@ export default function TeacherDashboardOverview() {
             value="overview"
             className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
-            Overview
+            Ringkasan
           </TabsTrigger>
           <TabsTrigger
             value="attendance"
             className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
-            Attendance
+            Kehadiran
           </TabsTrigger>
           <TabsTrigger
             value="activities"
             className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
-            Activities
+            Aktivitas
           </TabsTrigger>
         </TabsList>
       </Tabs>
@@ -191,8 +191,8 @@ export default function TeacherDashboardOverview() {
           <div>
             <Card>
               <CardHeader>
-                <CardTitle>Today's Status</CardTitle>
-                <CardDescription>Your attendance for today</CardDescription>
+                <CardTitle>Status Hari Ini</CardTitle>
+                <CardDescription>Kehadiran Anda hari ini</CardDescription>
               </CardHeader>
               <CardContent>
                 {lastAttendance ? (
@@ -205,24 +205,24 @@ export default function TeacherDashboardOverview() {
                       />
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Recorded at:</span>
+                      <span className="text-muted-foreground">Tercatat pada:</span>
                       <span className="font-medium">{new Date(lastAttendance.timestamp).toLocaleTimeString()}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Status:</span>
-                      <span className="font-medium text-amber-500">Pending Verification</span>
+                      <span className="font-medium text-amber-500">Menunggu Verifikasi</span>
                     </div>
                   </div>
                 ) : (
                   <div className="text-center py-8">
                     <Calendar className="h-12 w-12 mx-auto mb-2 text-muted-foreground/50" />
-                    <p className="text-muted-foreground">No attendance recorded today</p>
+                    <p className="text-muted-foreground">Belum ada kehadiran yang tercatat hari ini</p>
                     <Button
                       onClick={() => document.querySelector<HTMLButtonElement>("[data-attendance-trigger]")?.click()}
                       variant="outline"
                       className="mt-4"
                     >
-                      Record Now
+                      Catat Sekarang
                     </Button>
                   </div>
                 )}
@@ -239,12 +239,12 @@ export default function TeacherDashboardOverview() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-400">
                   <Users className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Attendance Today
+                  Kehadiran Hari Ini
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">92%</div>
-                <p className="text-sm text-muted-foreground">23 of 25 students present</p>
+                <p className="text-sm text-muted-foreground">23 dari 25 siswa hadir</p>
                 <Progress value={92} className="h-2 mt-2" />
                 <Button
                   variant="ghost"
@@ -252,7 +252,7 @@ export default function TeacherDashboardOverview() {
                   asChild
                   className="mt-2 p-0 h-auto text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                 >
-                  <Link href="/dashboard/teacher/attendance">View details</Link>
+                  <Link href="/dashboard/teacher/attendance">Lihat detail</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -261,16 +261,16 @@ export default function TeacherDashboardOverview() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-400">
                   <Calendar className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Today's Schedule
+                  Jadwal Hari Ini
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">4</div>
-                <p className="text-sm text-muted-foreground">Classes scheduled today</p>
+                <p className="text-sm text-muted-foreground">Kelas yang dijadwalkan hari ini</p>
                 <div className="mt-2 text-sm">
                   <div className="flex justify-between">
-                    <span>Next: Mathematics</span>
-                    <span>10:30 AM</span>
+                    <span>Selanjutnya: Matematika</span>
+                    <span>10:30 WIB</span>
                   </div>
                 </div>
                 <Button
@@ -279,7 +279,7 @@ export default function TeacherDashboardOverview() {
                   asChild
                   className="mt-2 p-0 h-auto text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
                 >
-                  <Link href="/dashboard/teacher/schedule">Full schedule</Link>
+                  <Link href="/dashboard/teacher/schedule">Jadwal lengkap</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -288,16 +288,16 @@ export default function TeacherDashboardOverview() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-purple-700 dark:text-purple-400">
                   <FileText className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Lesson Plans
+                  Rencana Pembelajaran
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">8</div>
-                <p className="text-sm text-muted-foreground">Plans ready for this week</p>
+                <p className="text-sm text-muted-foreground">Rencana siap untuk minggu ini</p>
                 <div className="mt-2 text-sm">
                   <div className="flex items-center gap-1">
                     <CheckCircle2 className="h-3 w-3 text-green-500" />
-                    <span>2 plans approved</span>
+                    <span>2 rencana disetujui</span>
                   </div>
                 </div>
                 <Button
@@ -306,7 +306,7 @@ export default function TeacherDashboardOverview() {
                   asChild
                   className="mt-2 p-0 h-auto text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
                 >
-                  <Link href="/dashboard/teacher">Manage plans</Link>
+                  <Link href="/dashboard/teacher">Kelola rencana</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -318,8 +318,8 @@ export default function TeacherDashboardOverview() {
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Recent Activities</CardTitle>
-                  <CardDescription>Latest classroom activities and updates</CardDescription>
+                  <CardTitle>Aktivitas Terbaru</CardTitle>
+                  <CardDescription>Aktivitas dan pembaruan kelas terbaru</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -337,7 +337,7 @@ export default function TeacherDashboardOverview() {
                 </CardContent>
                 <CardFooter>
                   <Button variant="outline" size="sm" className="w-full">
-                    View All Activities
+                    Lihat Semua Aktivitas
                   </Button>
                 </CardFooter>
               </Card>
@@ -346,8 +346,8 @@ export default function TeacherDashboardOverview() {
             <div>
               <Card>
                 <CardHeader>
-                  <CardTitle>Quick Actions</CardTitle>
-                  <CardDescription>Frequently used tools and actions</CardDescription>
+                  <CardTitle>Tindakan Cepat</CardTitle>
+                  <CardDescription>Alat dan tindakan yang sering digunakan</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-2">
@@ -358,7 +358,7 @@ export default function TeacherDashboardOverview() {
                     >
                       <Link href="/dashboard/teacher/attendance">
                         <Users className="h-5 w-5 text-blue-600" />
-                        <span className="text-xs">Take Attendance</span>
+                        <span className="text-xs">Ambil Kehadiran</span>
                       </Link>
                     </Button>
                     <Button
@@ -368,7 +368,7 @@ export default function TeacherDashboardOverview() {
                     >
                       <Link href="/dashboard/teacher">
                         <FileText className="h-5 w-5 text-purple-600" />
-                        <span className="text-xs">Create Lesson</span>
+                        <span className="text-xs">Buat Pembelajaran</span>
                       </Link>
                     </Button>
                     <Button
@@ -378,7 +378,7 @@ export default function TeacherDashboardOverview() {
                     >
                       <Link href="/dashboard/teacher/photos">
                         <ImageIcon className="h-5 w-5 text-green-600" />
-                        <span className="text-xs">Upload Photos</span>
+                        <span className="text-xs">Unggah Foto</span>
                       </Link>
                     </Button>
                     <Button
@@ -388,7 +388,7 @@ export default function TeacherDashboardOverview() {
                     >
                       <Link href="/dashboard/teacher/reports">
                         <PieChart className="h-5 w-5 text-amber-600" />
-                        <span className="text-xs">View Reports</span>
+                        <span className="text-xs">Lihat Laporan</span>
                       </Link>
                     </Button>
                   </div>
@@ -397,7 +397,7 @@ export default function TeacherDashboardOverview() {
                   <Button asChild variant="default" size="sm" className="w-full gap-1">
                     <Link href="/dashboard/teacher">
                       <LayoutDashboard className="h-4 w-4" />
-                      <span>Go to Main Dashboard</span>
+                      <span>Ke Dashboard Utama</span>
                     </Link>
                   </Button>
                 </CardFooter>
