@@ -220,18 +220,18 @@ export default function GenerateRPPPage() {
         >
           <div>
             <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
-              Generate RPP
+              Buat RPP
             </h1>
-            <p className="text-muted-foreground mt-1">Create and customize your lesson plans with AI assistance</p>
+            <p className="text-muted-foreground mt-1">Buat dan sesuaikan rencana pembelajaran Anda dengan bantuan AI</p>
           </div>
           <div className="flex gap-2 mt-4 md:mt-0">
             <Button variant="outline" className="gap-2 shadow-sm">
               <History className="h-4 w-4" />
-              <span className="hidden sm:inline">Recent</span> Plans
+              <span className="hidden sm:inline">Rencana</span> Terbaru
             </Button>
             <Button className="gap-2 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary shadow-md">
               <Sparkles className="h-4 w-4" />
-              <span className="hidden sm:inline">New</span> AI Plan
+              <span className="hidden sm:inline">Rencana</span> AI Baru
             </Button>
           </div>
         </motion.div>
@@ -242,19 +242,19 @@ export default function GenerateRPPPage() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-400">
                   <BookOpen className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Lesson Plans
+                  Rencana Pembelajaran
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">{savedRPPs.length}</div>
-                <p className="text-sm text-muted-foreground">Created this month</p>
+                <p className="text-sm text-muted-foreground">Dibuat bulan ini</p>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="mt-2 p-0 h-auto text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                   onClick={() => setActiveTab("saved")}
                 >
-                  <span>View all</span>
+                  <span>Lihat semua</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               </CardContent>
@@ -266,18 +266,18 @@ export default function GenerateRPPPage() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-purple-700 dark:text-purple-400">
                   <FileText className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Syllabi
+                  Silabus
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">4</div>
-                <p className="text-sm text-muted-foreground">Active syllabi</p>
+                <p className="text-sm text-muted-foreground">Silabus aktif</p>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="mt-2 p-0 h-auto text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
                 >
-                  <span>View all</span>
+                  <span>Lihat semua</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               </CardContent>
@@ -289,18 +289,18 @@ export default function GenerateRPPPage() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-400">
                   <Zap className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  AI Credits
+                  Kredit AI
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">85</div>
-                <p className="text-sm text-muted-foreground">Remaining this month</p>
+                <p className="text-sm text-muted-foreground">Tersisa bulan ini</p>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="mt-2 p-0 h-auto text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
                 >
-                  <span>Get more</span>
+                  <span>Dapatkan lebih</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               </CardContent>
@@ -312,18 +312,18 @@ export default function GenerateRPPPage() {
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
                   <Calendar className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  Schedule
+                  Jadwal
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">3</div>
-                <p className="text-sm text-muted-foreground">Upcoming classes</p>
+                <p className="text-sm text-muted-foreground">Kelas mendatang</p>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="mt-2 p-0 h-auto text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300"
                 >
-                  <span>View schedule</span>
+                  <span>Lihat jadwal</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               </CardContent>
@@ -340,17 +340,17 @@ export default function GenerateRPPPage() {
                     <Star className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold">Premium Features Available</h3>
-                    <p className="text-sm text-muted-foreground">Upgrade to access advanced AI lesson planning tools</p>
+                    <h3 className="text-lg font-semibold">Fitur Premium Tersedia</h3>
+                    <p className="text-sm text-muted-foreground">Tingkatkan untuk mengakses alat perencanaan pembelajaran AI tingkat lanjut</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 px-3 py-1">
                     <BarChart3 className="h-3.5 w-3.5 mr-1" />
-                    7-day trial
+                    Uji coba 7 hari
                   </Badge>
                   <Button size="sm" className="bg-primary hover:bg-primary-dark">
-                    Upgrade Now
+                    Tingkatkan Sekarang
                   </Button>
                 </div>
               </div>
@@ -367,7 +367,7 @@ export default function GenerateRPPPage() {
                   className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                 >
                   <Plus className="h-4 w-4 mr-2" />
-                  Create Plan
+                  Buat Rencana
                 </TabsTrigger>
                 <TabsTrigger
                   value="preview"
@@ -375,14 +375,14 @@ export default function GenerateRPPPage() {
                   className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                 >
                   <FileText className="h-4 w-4 mr-2" />
-                  Preview
+                  Pratinjau
                 </TabsTrigger>
                 <TabsTrigger
                   value="saved"
                   className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                 >
                   <BookOpen className="h-4 w-4 mr-2" />
-                  Saved Plans
+                  Rencana Tersimpan
                 </TabsTrigger>
               </TabsList>
 
@@ -390,11 +390,11 @@ export default function GenerateRPPPage() {
                 <div className="flex gap-2 mt-4 sm:mt-0">
                   <Button variant="outline" size="sm" className="gap-2 shadow-sm">
                     <Download className="h-4 w-4" />
-                    Export
+                    Ekspor
                   </Button>
                   <Button variant="outline" size="sm" className="gap-2 shadow-sm">
                     <Share2 className="h-4 w-4" />
-                    Share
+                    Bagikan
                   </Button>
                   <Button
                     size="sm"
@@ -403,7 +403,7 @@ export default function GenerateRPPPage() {
                     disabled={isSaving}
                   >
                     <Save className="h-4 w-4" />
-                    {isSaving ? "Saving..." : "Save Plan"}
+                    {isSaving ? "Menyimpan..." : "Simpan Rencana"}
                   </Button>
                 </div>
               )}
