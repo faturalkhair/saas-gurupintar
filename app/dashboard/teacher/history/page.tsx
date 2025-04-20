@@ -34,9 +34,9 @@ export default function LessonPlanHistoryPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Lesson Plan History
+            Riwayat Rencana Pembelajaran
           </h1>
-          <p className="text-muted-foreground mt-1">Browse and manage your saved lesson plans</p>
+          <p className="text-muted-foreground mt-1">Jelajahi dan kelola rencana pembelajaran yang telah disimpan</p>
         </div>
       </div>
 
@@ -44,16 +44,16 @@ export default function LessonPlanHistoryPage() {
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2">
             <Clock className="h-5 w-5 text-primary" />
-            Saved Lesson Plans
+            Rencana Pembelajaran Tersimpan
           </CardTitle>
-          <CardDescription>View and manage your previously created lesson plans</CardDescription>
+          <CardDescription>Lihat dan kelola rencana pembelajaran yang telah dibuat sebelumnya</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="all" className="mb-6">
             <TabsList>
-              <TabsTrigger value="all">All Plans</TabsTrigger>
-              <TabsTrigger value="recent">Recent</TabsTrigger>
-              <TabsTrigger value="favorites">Favorites</TabsTrigger>
+              <TabsTrigger value="all">Semua Rencana</TabsTrigger>
+              <TabsTrigger value="recent">Terbaru</TabsTrigger>
+              <TabsTrigger value="favorites">Favorit</TabsTrigger>
             </TabsList>
           </Tabs>
 
@@ -62,7 +62,7 @@ export default function LessonPlanHistoryPage() {
               <Search className="text-muted-foreground h-4 w-4 flex-shrink-0" />
               <Input
                 type="text"
-                placeholder="Search lesson plans..."
+                placeholder="Cari rencana pembelajaran..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="max-w-sm"
@@ -74,11 +74,11 @@ export default function LessonPlanHistoryPage() {
                 <SelectTrigger className="w-[150px]">
                   <div className="flex items-center gap-2">
                     <Filter className="h-4 w-4" />
-                    <span>Subject</span>
+                    <span>Mata Pelajaran</span>
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Subjects</SelectItem>
+                  <SelectItem value="all">Semua Mata Pelajaran</SelectItem>
                   {subjects.map((subject) => (
                     <SelectItem key={subject} value={subject}>
                       {subject}
@@ -91,11 +91,11 @@ export default function LessonPlanHistoryPage() {
                 <SelectTrigger className="w-[150px]">
                   <div className="flex items-center gap-2">
                     <Filter className="h-4 w-4" />
-                    <span>Grade</span>
+                    <span>Kelas</span>
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Grades</SelectItem>
+                  <SelectItem value="all">Semua Kelas</SelectItem>
                   {grades.map((grade) => (
                     <SelectItem key={grade} value={grade}>
                       {grade}
@@ -124,11 +124,11 @@ export default function LessonPlanHistoryPage() {
                   </CardHeader>
                   <CardContent className="p-4 pt-3">
                     <div className="mb-3">
-                      <div className="text-sm font-medium mb-1">Initial Competency:</div>
+                      <div className="text-sm font-medium mb-1">Kompetensi Awal:</div>
                       <p className="text-sm text-muted-foreground line-clamp-2">{rpp.kompetensiAwal}</p>
                     </div>
                     <div className="flex items-center justify-between">
-                      <div className="text-xs text-muted-foreground">Duration: {rpp.duration}</div>
+                      <div className="text-xs text-muted-foreground">Durasi: {rpp.duration}</div>
                       <div className="flex gap-1">
                         <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
                           <Eye className="h-4 w-4" />
