@@ -62,7 +62,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
         videoRef.current.srcObject = stream
       }
     } catch (err) {
-      setError("Could not access camera. Please ensure you've granted camera permissions.")
+      setError("Tidak dapat mengakses kamera. Silakan pastikan Anda telah memberikan izin kamera.")
       setCameraActive(false)
     }
   }
@@ -113,13 +113,13 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
 
     // Validate file type
     if (!file.type.startsWith("image/")) {
-      setError("Please upload an image file")
+      setError("Silakan unggah file gambar")
       return
     }
 
     // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
-      setError("Image size should be less than 5MB")
+      setError("Ukuran gambar harus kurang dari 5MB")
       return
     }
 
@@ -142,7 +142,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
     } catch (err) {
       setLocationStatus({
         success: false,
-        message: "Failed to verify location",
+        message: "Gagal memverifikasi lokasi",
       })
     }
   }
@@ -166,14 +166,14 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
 
       // Validate we have an image
       if (!capturedImage && !uploadedImage) {
-        setError("Please capture or upload a selfie")
+        setError("Silakan ambil atau unggah selfie")
         setIsSubmitting(false)
         return
       }
 
       // Validate location if required
       if (locationStatus && !locationStatus.success) {
-        setError("Location verification failed. Please try again.")
+        setError("Verifikasi lokasi gagal. Silakan coba lagi.")
         setIsSubmitting(false)
         return
       }
@@ -203,7 +203,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
         resetForm()
       }, 2000)
     } catch (err) {
-      setError("Failed to submit attendance. Please try again.")
+      setError("Gagal mengirim kehadiran. Silakan coba lagi.")
       setIsSubmitting(false)
     }
   }
@@ -225,14 +225,14 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
         className="gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
       >
         <Camera className="h-4 w-4" />
-        Record Attendance
+        Absensi Mandiri
       </Button>
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Teacher Self-Attendance</DialogTitle>
-            <DialogDescription>Take a selfie or upload a photo to record your attendance for today.</DialogDescription>
+            <DialogTitle>Absensi Guru</DialogTitle>
+            <DialogDescription>Ambil foto atau unggah foto untuk mencatat kehadiran Anda hari ini.</DialogDescription>
           </DialogHeader>
 
           {!capturedImage && !uploadedImage ? (
@@ -256,7 +256,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
                 <div className="grid grid-cols-2 gap-4">
                   <Button variant="outline" className="h-32 flex flex-col gap-2" onClick={() => setCameraActive(true)}>
                     <Camera className="h-8 w-8 mb-1" />
-                    <span>Take Selfie</span>
+                    <span>Ambil Selfie</span>
                   </Button>
 
                   <Button
@@ -265,7 +265,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
                     onClick={() => fileInputRef.current?.click()}
                   >
                     <Upload className="h-8 w-8 mb-1" />
-                    <span>Upload Photo</span>
+                    <span>Unggah Foto</span>
                     <input
                       type="file"
                       ref={fileInputRef}
@@ -290,7 +290,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
               <div className="flex justify-between">
                 <Button variant="outline" size="sm" onClick={resetForm}>
                   <RefreshCw className="h-4 w-4 mr-2" />
-                  Retake
+                  Ambil Ulang
                 </Button>
 
                 <Button
@@ -300,7 +300,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
                   variant={locationStatus?.success ? "outline" : "default"}
                 >
                   <MapPin className="h-4 w-4 mr-2" />
-                  {locationStatus ? "Recheck Location" : "Verify Location"}
+                  {locationStatus ? "Periksa Ulang Lokasi" : "Verifikasi Lokasi"}
                 </Button>
               </div>
 
@@ -315,9 +315,9 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
                   <AlertTitle>
                     {locationStatus.success
                       ? locationStatus.withinBoundary
-                        ? "Location Verified"
-                        : "Outside School Premises"
-                      : "Location Error"}
+                        ? "Lokasi Terverifikasi"
+                        : "Di Luar Area Sekolah"
+                      : "Kesalahan Lokasi"}
                   </AlertTitle>
                   <AlertDescription>{locationStatus.message}</AlertDescription>
                 </Alert>
@@ -328,7 +328,7 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
           {error && (
             <Alert variant="destructive">
               <X className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
+              <AlertTitle>Kesalahan</AlertTitle>
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
@@ -336,8 +336,8 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
           {success && (
             <Alert>
               <Check className="h-4 w-4 text-green-500" />
-              <AlertTitle>Success</AlertTitle>
-              <AlertDescription>Your attendance has been recorded successfully!</AlertDescription>
+              <AlertTitle>Berhasil</AlertTitle>
+              <AlertDescription>Kehadiran Anda telah berhasil direkam!</AlertDescription>
             </Alert>
           )}
 
@@ -350,10 +350,10 @@ export function SelfieAttendance({ teacherId, onSuccess }: SelfieAttendanceProps
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Submitting...
+                  Mengirim...
                 </>
               ) : (
-                "Submit Attendance"
+                "Kirim Kehadiran"
               )}
             </Button>
           </DialogFooter>
