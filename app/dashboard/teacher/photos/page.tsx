@@ -19,11 +19,11 @@ import Image from "next/image"
 
 // Sample categories for photos
 const categories = [
-  { id: "classroom", name: "Classroom Activities" },
-  { id: "field-trip", name: "Field Trips" },
-  { id: "experiments", name: "Science Experiments" },
-  { id: "projects", name: "Student Projects" },
-  { id: "events", name: "School Events" },
+  { id: "classroom", name: "Kegiatan Kelas" },
+  { id: "field-trip", name: "Kunjungan Lapangan" },
+  { id: "experiments", name: "Eksperimen Sains" },
+  { id: "projects", name: "Proyek Siswa" },
+  { id: "events", name: "Acara Sekolah" },
 ]
 
 interface PhotoItem {
@@ -136,9 +136,9 @@ export default function PhotosPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Classroom Photos
+            Foto Kelas
           </h1>
-          <p className="text-muted-foreground mt-1">Upload and manage photos of classroom activities</p>
+          <p className="text-muted-foreground mt-1">Unggah dan kelola foto kegiatan kelas</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" className="gap-2" onClick={() => fileInputRef.current?.click()}>
@@ -161,7 +161,7 @@ export default function PhotosPage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <CardTitle>Upload Photos</CardTitle>
+                <CardTitle>Unggah Foto</CardTitle>
                 <div className="flex flex-wrap gap-2">
                   <Popover>
                     <PopoverTrigger asChild>
@@ -189,7 +189,7 @@ export default function PhotosPage() {
                   </Select>
                 </div>
               </div>
-              <CardDescription>Drag and drop photos or click to browse</CardDescription>
+              <CardDescription>Seret dan lepas foto atau klik untuk memilih</CardDescription>
             </CardHeader>
             <CardContent>
               <div
@@ -213,14 +213,14 @@ export default function PhotosPage() {
                 />
                 <div className="flex flex-col items-center justify-center space-y-2 py-4">
                   <ImageIcon className="h-12 w-12 text-muted-foreground/50" />
-                  <h3 className="text-lg font-medium">Drag photos here or click to browse</h3>
-                  <p className="text-sm text-muted-foreground">Support for JPG, PNG, GIF up to 10MB each</p>
+                  <h3 className="text-lg font-medium">Seret foto ke sini atau klik untuk memilih</h3>
+                  <p className="text-sm text-muted-foreground">Mendukung format JPG, PNG, GIF hingga 10MB per file</p>
                 </div>
               </div>
 
               {photos.length > 0 && (
                 <div className="mt-6 space-y-4">
-                  <h3 className="text-lg font-medium">Selected Photos ({photos.length})</h3>
+                  <h3 className="text-lg font-medium">Foto Terpilih ({photos.length})</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {photos.map((photo) => (
                       <Card key={photo.id} className={cn(photo.uploaded && "border-green-200 bg-green-50")}>
@@ -247,12 +247,12 @@ export default function PhotosPage() {
                         </div>
                         <CardContent className="p-3 space-y-2">
                           <Input
-                            placeholder="Photo title"
+                            placeholder="Judul foto"
                             value={photo.title}
                             onChange={(e) => handleUpdatePhoto(photo.id, "title", e.target.value)}
                           />
                           <Textarea
-                            placeholder="Description (optional)"
+                            placeholder="Deskripsi (opsional)"
                             value={photo.description}
                             onChange={(e) => handleUpdatePhoto(photo.id, "description", e.target.value)}
                             rows={2}
@@ -272,7 +272,7 @@ export default function PhotosPage() {
               <CardFooter className="flex justify-between">
                 <Button variant="outline" className="gap-2" onClick={() => setPhotos([])}>
                   <Trash2 className="h-4 w-4" />
-                  Clear All
+                  Hapus Semua
                 </Button>
                 <Button
                   className="gap-2"
@@ -291,8 +291,8 @@ export default function PhotosPage() {
       <div className="animate-in slide-in-from-bottom duration-300 delay-200">
         <Card>
           <CardHeader>
-            <CardTitle>Recent Photo Galleries</CardTitle>
-            <CardDescription>Previously uploaded photo collections</CardDescription>
+            <CardTitle>Galeri Foto Terbaru</CardTitle>
+            <CardDescription>Koleksi foto yang telah diunggah sebelumnya</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -355,7 +355,7 @@ export default function PhotosPage() {
           </CardContent>
           <CardFooter>
             <Button variant="outline" className="w-full">
-              View All Galleries
+              Lihat Semua Galeri
             </Button>
           </CardFooter>
         </Card>
