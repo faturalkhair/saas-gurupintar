@@ -11,12 +11,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/u
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const reports = [
-  { id: 1, name: "Class 9A Performance Report", date: "2023-06-01", type: "Performance", status: "Ready" },
-  { id: 2, name: "Quarterly Progress Report", date: "2023-07-01", type: "Progress", status: "Ready" },
-  { id: 3, name: "Annual Subject Report", date: "2023-05-15", type: "Subject", status: "Processing" },
-  { id: 4, name: "Student Achievement Analysis", date: "2023-06-10", type: "Analysis", status: "Ready" },
-  { id: 5, name: "Curriculum Coverage Report", date: "2023-05-20", type: "Curriculum", status: "Ready" },
-  { id: 6, name: "Class 10B Assessment Report", date: "2023-06-05", type: "Assessment", status: "Processing" },
+  { id: 1, name: "Laporan Kinerja Kelas 9A", date: "2023-06-01", type: "Kinerja", status: "Siap" },
+  { id: 2, name: "Laporan Kemajuan Triwulan", date: "2023-07-01", type: "Kemajuan", status: "Siap" },
+  { id: 3, name: "Laporan Mata Pelajaran Tahunan", date: "2023-05-15", type: "Mata Pelajaran", status: "Diproses" },
+  { id: 4, name: "Analisis Prestasi Siswa", date: "2023-06-10", type: "Analisis", status: "Siap" },
+  { id: 5, name: "Laporan Cakupan Kurikulum", date: "2023-05-20", type: "Kurikulum", status: "Siap" },
+  { id: 6, name: "Laporan Penilaian Kelas 10B", date: "2023-06-05", type: "Penilaian", status: "Diproses" },
 ]
 
 export default function ReportsPage() {
@@ -43,13 +43,13 @@ export default function ReportsPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Reports
+            Laporan
           </h1>
-          <p className="text-muted-foreground mt-1">Generate and manage student performance reports</p>
+          <p className="text-muted-foreground mt-1">Buat dan kelola laporan kinerja siswa</p>
         </div>
         <Button className="gap-2">
           <FileText className="h-4 w-4" />
-          Generate New Report
+          Buat Laporan Baru
         </Button>
       </div>
 
@@ -58,12 +58,12 @@ export default function ReportsPage() {
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-400">
               <BarChart className="h-5 w-5" />
-              Performance Reports
+              Laporan Kinerja
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">8</div>
-            <p className="text-sm text-muted-foreground">Generated this term</p>
+            <p className="text-sm text-muted-foreground">Dibuat dalam semester ini</p>
           </CardContent>
         </Card>
 
@@ -71,12 +71,12 @@ export default function ReportsPage() {
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-purple-700 dark:text-purple-400">
               <PieChart className="h-5 w-5" />
-              Assessment Reports
+              Laporan Penilaian
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">12</div>
-            <p className="text-sm text-muted-foreground">Total assessments</p>
+            <p className="text-sm text-muted-foreground">Total penilaian</p>
           </CardContent>
         </Card>
 
@@ -84,12 +84,12 @@ export default function ReportsPage() {
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-400">
               <LineChart className="h-5 w-5" />
-              Progress Tracking
+              Pelacakan Kemajuan
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">4</div>
-            <p className="text-sm text-muted-foreground">Classes monitored</p>
+            <p className="text-sm text-muted-foreground">Kelas yang dipantau</p>
           </CardContent>
         </Card>
       </div>
@@ -98,17 +98,17 @@ export default function ReportsPage() {
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2">
             <FileText className="h-5 w-5 text-primary" />
-            Teacher Reports
+            Laporan Guru
           </CardTitle>
-          <CardDescription>Browse and download your generated reports</CardDescription>
+          <CardDescription>Jelajahi dan unduh laporan yang telah dibuat</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="all" className="mb-6">
             <TabsList>
-              <TabsTrigger value="all">All Reports</TabsTrigger>
-              <TabsTrigger value="performance">Performance</TabsTrigger>
-              <TabsTrigger value="progress">Progress</TabsTrigger>
-              <TabsTrigger value="assessment">Assessment</TabsTrigger>
+              <TabsTrigger value="all">Semua Laporan</TabsTrigger>
+              <TabsTrigger value="performance">Kinerja</TabsTrigger>
+              <TabsTrigger value="progress">Kemajuan</TabsTrigger>
+              <TabsTrigger value="assessment">Penilaian</TabsTrigger>
             </TabsList>
           </Tabs>
 
@@ -117,7 +117,7 @@ export default function ReportsPage() {
               <Search className="text-muted-foreground h-4 w-4 flex-shrink-0" />
               <Input
                 type="text"
-                placeholder="Search reports..."
+                placeholder="Cari laporan..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="max-w-sm"
@@ -129,11 +129,11 @@ export default function ReportsPage() {
                 <SelectTrigger className="w-[150px]">
                   <div className="flex items-center gap-2">
                     <Filter className="h-4 w-4" />
-                    <span>Type</span>
+                    <span>Tipe</span>
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
+                  <SelectItem value="all">Semua Tipe</SelectItem>
                   {types.map((type) => (
                     <SelectItem key={type} value={type}>
                       {type}
@@ -150,7 +150,7 @@ export default function ReportsPage() {
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Statuses</SelectItem>
+                  <SelectItem value="all">Semua Status</SelectItem>
                   {statuses.map((status) => (
                     <SelectItem key={status} value={status}>
                       {status}
@@ -165,11 +165,11 @@ export default function ReportsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Report Name</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Type</TableHead>
+                  <TableHead>Nama Laporan</TableHead>
+                  <TableHead>Tanggal</TableHead>
+                  <TableHead>Tipe</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead>Aksi</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -182,17 +182,17 @@ export default function ReportsPage() {
                         <Badge variant="outline">{report.type}</Badge>
                       </TableCell>
                       <TableCell>
-                        <Badge variant={report.status === "Ready" ? "success" : "secondary"}>{report.status}</Badge>
+                        <Badge variant={report.status === "Siap" ? "success" : "secondary"}>{report.status}</Badge>
                       </TableCell>
                       <TableCell>
                         <Button
                           variant="outline"
                           size="sm"
                           className="rounded-full"
-                          disabled={report.status !== "Ready"}
+                          disabled={report.status !== "Siap"}
                         >
                           <Download className="mr-2 h-4 w-4" />
-                          Download
+                          Unduh
                         </Button>
                       </TableCell>
                     </TableRow>
@@ -200,7 +200,7 @@ export default function ReportsPage() {
                 ) : (
                   <TableRow>
                     <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
-                      No reports found matching your criteria
+                      Tidak ada laporan yang sesuai dengan kriteria Anda
                     </TableCell>
                   </TableRow>
                 )}
