@@ -69,8 +69,8 @@ export function AttendanceHistory({ teacherId }: { teacherId: string }) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Recent Attendance</CardTitle>
-          <CardDescription>Loading your attendance history...</CardDescription>
+          <CardTitle>Riwayat Kehadiran Terbaru</CardTitle>
+          <CardDescription>Memuat riwayat kehadiran Anda...</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -92,15 +92,15 @@ export function AttendanceHistory({ teacherId }: { teacherId: string }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Recent Attendance</CardTitle>
-        <CardDescription>Your attendance history for the past 30 days</CardDescription>
+        <CardTitle>Riwayat Kehadiran Terbaru</CardTitle>
+        <CardDescription>Riwayat kehadiran Anda selama 30 hari terakhir</CardDescription>
       </CardHeader>
       <CardContent>
         {records.length === 0 ? (
           <div className="text-center py-6 text-muted-foreground">
             <Calendar className="h-12 w-12 mx-auto mb-2 text-muted-foreground/50" />
-            <p>No attendance records found</p>
-            <p className="text-sm">Start recording your attendance to see your history here</p>
+            <p>Tidak ada catatan kehadiran</p>
+            <p className="text-sm">Mulai rekam kehadiran Anda untuk melihat riwayat di sini</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -123,7 +123,7 @@ export function AttendanceHistory({ teacherId }: { teacherId: string }) {
 
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-medium">Attendance Recorded</h4>
+                    <h4 className="text-sm font-medium">Kehadiran Terekam</h4>
                     {getStatusBadge(record.status)}
                   </div>
 
@@ -139,7 +139,7 @@ export function AttendanceHistory({ teacherId }: { teacherId: string }) {
                     {record.location && (
                       <div className="flex items-center">
                         <MapPin className="h-3.5 w-3.5 mr-1" />
-                        {record.location.verified ? "On premises" : "Off premises"}
+                        {record.location.verified ? "Di lokasi" : "Di luar lokasi"}
                       </div>
                     )}
                   </div>
