@@ -220,7 +220,7 @@ export default function GenerateRPPPage() {
         >
           <div>
             <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">
-              Buat RPP
+              Dashboard Guru
             </h1>
             <p className="text-muted-foreground mt-1">Buat dan sesuaikan rencana pembelajaran Anda dengan bantuan AI</p>
           </div>
