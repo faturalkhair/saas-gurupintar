@@ -51,9 +51,9 @@ export default function SettingsPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Settings
+            Pengaturan
           </h1>
-          <p className="text-muted-foreground mt-1">Manage your account preferences and settings</p>
+          <p className="text-muted-foreground mt-1">Kelola preferensi dan pengaturan akun Anda</p>
         </div>
       </div>
 
@@ -61,27 +61,27 @@ export default function SettingsPage() {
         <TabsList className="grid w-full max-w-md grid-cols-4 mb-8">
           <TabsTrigger value="profile" className="flex items-center gap-2">
             <User className="h-4 w-4" />
-            <span className="hidden sm:inline">Profile</span>
+            <span className="hidden sm:inline">Profil</span>
           </TabsTrigger>
           <TabsTrigger value="notifications" className="flex items-center gap-2">
             <Bell className="h-4 w-4" />
-            <span className="hidden sm:inline">Notifications</span>
+            <span className="hidden sm:inline">Notifikasi</span>
           </TabsTrigger>
           <TabsTrigger value="appearance" className="flex items-center gap-2">
             <Palette className="h-4 w-4" />
-            <span className="hidden sm:inline">Appearance</span>
+            <span className="hidden sm:inline">Tampilan</span>
           </TabsTrigger>
           <TabsTrigger value="security" className="flex items-center gap-2">
             <Lock className="h-4 w-4" />
-            <span className="hidden sm:inline">Security</span>
+            <span className="hidden sm:inline">Keamanan</span>
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile">
           <Card className="border-primary/20">
             <CardHeader>
-              <CardTitle>Profile Information</CardTitle>
-              <CardDescription>Update your personal information and preferences</CardDescription>
+              <CardTitle>Informasi Profil</CardTitle>
+              <CardDescription>Perbarui informasi pribadi dan preferensi Anda</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -93,18 +93,18 @@ export default function SettingsPage() {
                     </Avatar>
                     <Button variant="outline" size="sm" className="gap-2">
                       <Upload className="h-4 w-4" />
-                      Change Photo
+                      Ubah Foto
                     </Button>
                   </div>
 
                   <div className="flex-1 space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name</Label>
+                        <Label htmlFor="name">Nama Lengkap</Label>
                         <Input id="name" name="name" value={settings.name} onChange={handleInputChange} />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label htmlFor="email">Alamat Email</Label>
                         <Input
                           id="email"
                           name="email"
@@ -116,7 +116,7 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject Specialty</Label>
+                      <Label htmlFor="subject">Mata Pelajaran</Label>
                       <Input id="subject" name="subject" value={settings.subject} onChange={handleInputChange} />
                     </div>
 
@@ -136,7 +136,7 @@ export default function SettingsPage() {
                 <div className="flex justify-end">
                   <Button type="submit" className="gap-2">
                     <Save className="h-4 w-4" />
-                    Save Changes
+                    Simpan Perubahan
                   </Button>
                 </div>
               </form>
@@ -147,15 +147,15 @@ export default function SettingsPage() {
         <TabsContent value="notifications">
           <Card className="border-primary/20">
             <CardHeader>
-              <CardTitle>Notification Preferences</CardTitle>
-              <CardDescription>Manage how you receive notifications</CardDescription>
+              <CardTitle>Preferensi Notifikasi</CardTitle>
+              <CardDescription>Kelola cara Anda menerima notifikasi</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium">Push Notifications</h3>
-                    <p className="text-sm text-muted-foreground">Receive notifications in the app</p>
+                    <h3 className="font-medium">Notifikasi Push</h3>
+                    <p className="text-sm text-muted-foreground">Terima notifikasi di aplikasi</p>
                   </div>
                   <Switch
                     checked={settings.notifications}
@@ -167,8 +167,8 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium">Email Notifications</h3>
-                    <p className="text-sm text-muted-foreground">Receive notifications via email</p>
+                    <h3 className="font-medium">Notifikasi Email</h3>
+                    <p className="text-sm text-muted-foreground">Terima notifikasi melalui email</p>
                   </div>
                   <Switch
                     checked={settings.emailNotifications}
@@ -179,23 +179,23 @@ export default function SettingsPage() {
                 <Separator />
 
                 <div className="space-y-2">
-                  <h3 className="font-medium">Notification Types</h3>
+                  <h3 className="font-medium">Jenis Notifikasi</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-center space-x-2">
                       <Switch id="new-lessons" defaultChecked />
-                      <Label htmlFor="new-lessons">New lesson plans</Label>
+                      <Label htmlFor="new-lessons">Rencana pelajaran baru</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Switch id="schedule-changes" defaultChecked />
-                      <Label htmlFor="schedule-changes">Schedule changes</Label>
+                      <Label htmlFor="schedule-changes">Perubahan jadwal</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Switch id="report-generation" defaultChecked />
-                      <Label htmlFor="report-generation">Report generation</Label>
+                      <Label htmlFor="report-generation">Pembuatan laporan</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Switch id="system-updates" defaultChecked />
-                      <Label htmlFor="system-updates">System updates</Label>
+                      <Label htmlFor="system-updates">Pembaruan sistem</Label>
                     </div>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function SettingsPage() {
               <div className="flex justify-end">
                 <Button className="gap-2">
                   <Save className="h-4 w-4" />
-                  Save Preferences
+                  Simpan Preferensi
                 </Button>
               </div>
             </CardContent>
@@ -214,37 +214,37 @@ export default function SettingsPage() {
         <TabsContent value="appearance">
           <Card className="border-primary/20">
             <CardHeader>
-              <CardTitle>Appearance Settings</CardTitle>
-              <CardDescription>Customize how the application looks</CardDescription>
+              <CardTitle>Pengaturan Tampilan</CardTitle>
+              <CardDescription>Sesuaikan tampilan aplikasi</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="theme">Theme</Label>
+                  <Label htmlFor="theme">Tema</Label>
                   <Select value={settings.theme} onValueChange={(value) => handleSelectChange("theme", value)}>
                     <SelectTrigger id="theme">
-                      <SelectValue placeholder="Select theme" />
+                      <SelectValue placeholder="Pilih tema" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System</SelectItem>
+                      <SelectItem value="light">Terang</SelectItem>
+                      <SelectItem value="dark">Gelap</SelectItem>
+                      <SelectItem value="system">Sistem</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="language">Language</Label>
+                  <Label htmlFor="language">Bahasa</Label>
                   <Select value={settings.language} onValueChange={(value) => handleSelectChange("language", value)}>
                     <SelectTrigger id="language">
-                      <SelectValue placeholder="Select language" />
+                      <SelectValue placeholder="Pilih bahasa" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="english">English</SelectItem>
-                      <SelectItem value="spanish">Spanish</SelectItem>
-                      <SelectItem value="french">French</SelectItem>
-                      <SelectItem value="german">German</SelectItem>
-                      <SelectItem value="japanese">Japanese</SelectItem>
+                      <SelectItem value="english">Inggris</SelectItem>
+                      <SelectItem value="spanish">Spanyol</SelectItem>
+                      <SelectItem value="french">Prancis</SelectItem>
+                      <SelectItem value="german">Jerman</SelectItem>
+                      <SelectItem value="japanese">Jepang</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -253,7 +253,7 @@ export default function SettingsPage() {
               <div className="flex justify-end">
                 <Button className="gap-2">
                   <Save className="h-4 w-4" />
-                  Save Preferences
+                  Simpan Preferensi
                 </Button>
               </div>
             </CardContent>
@@ -263,23 +263,23 @@ export default function SettingsPage() {
         <TabsContent value="security">
           <Card className="border-primary/20">
             <CardHeader>
-              <CardTitle>Security Settings</CardTitle>
-              <CardDescription>Manage your account security</CardDescription>
+              <CardTitle>Pengaturan Keamanan</CardTitle>
+              <CardDescription>Kelola keamanan akun Anda</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="current-password">Current Password</Label>
+                  <Label htmlFor="current-password">Kata Sandi Saat Ini</Label>
                   <Input id="current-password" type="password" />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="new-password">New Password</Label>
+                    <Label htmlFor="new-password">Kata Sandi Baru</Label>
                     <Input id="new-password" type="password" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="confirm-password">Confirm New Password</Label>
+                    <Label htmlFor="confirm-password">Konfirmasi Kata Sandi Baru</Label>
                     <Input id="confirm-password" type="password" />
                   </div>
                 </div>
@@ -288,8 +288,8 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium">Two-Factor Authentication</h3>
-                    <p className="text-sm text-muted-foreground">Add an extra layer of security to your account</p>
+                    <h3 className="font-medium">Autentikasi Dua Faktor</h3>
+                    <p className="text-sm text-muted-foreground">Tambahkan lapisan keamanan ekstra ke akun Anda</p>
                   </div>
                   <Switch
                     checked={settings.twoFactorAuth}
@@ -301,15 +301,15 @@ export default function SettingsPage() {
               <div className="flex justify-end">
                 <Button className="gap-2">
                   <Shield className="h-4 w-4" />
-                  Update Security
+                  Perbarui Keamanan
                 </Button>
               </div>
             </CardContent>
             <CardFooter className="flex flex-col items-start border-t p-6">
-              <h3 className="font-medium text-destructive">Danger Zone</h3>
-              <p className="text-sm text-muted-foreground mb-4">Permanently delete your account and all of your data</p>
+              <h3 className="font-medium text-destructive">Zona Bahaya</h3>
+              <p className="text-sm text-muted-foreground mb-4">Hapus akun Anda dan semua data secara permanen</p>
               <Button variant="destructive" size="sm">
-                Delete Account
+                Hapus Akun
               </Button>
             </CardFooter>
           </Card>
