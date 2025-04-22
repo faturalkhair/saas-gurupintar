@@ -37,7 +37,7 @@ export default function TeacherLayout({ children }: { children: React.ReactNode 
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
-                  placeholder="Search anything..."
+                  placeholder="Cari apapun..."
                   className="pl-9 border-none bg-muted/30 focus-visible:ring-primary/20 rounded-full"
                 />
               </div>
