@@ -24,15 +24,15 @@ export function Footer() {
             </div>
 
             <p className="text-muted-foreground dark:text-gray-300">
-              Empowering educators with intelligent tools to create exceptional learning experiences.
+              Memberdayakan pendidik dengan alat cerdas untuk menciptakan pengalaman belajar yang luar biasa.
             </p>
 
             <div className="space-y-3">
-              <h4 className="font-medium text-foreground dark:text-white">Subscribe to our newsletter</h4>
+              <h4 className="font-medium text-foreground dark:text-white">Berlangganan newsletter kami</h4>
               <div className="flex gap-2">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Masukkan email Anda"
                   className="bg-background dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder:text-gray-400"
                 />
                 <Button size="icon" className="dark:bg-primary dark:text-white dark:hover:bg-primary/90">
@@ -40,16 +40,16 @@ export function Footer() {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground dark:text-gray-400">
-                Get the latest updates and resources directly to your inbox.
+                Dapatkan pembaruan dan sumber daya terbaru langsung ke kotak masuk Anda.
               </p>
             </div>
           </div>
 
           {/* Column 2: Products */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-foreground dark:text-white">Products</h4>
+            <h4 className="text-lg font-semibold text-foreground dark:text-white">Produk</h4>
             <ul className="space-y-3">
-              {["Lesson Planner", "Syllabus Builder", "Assessment Tools", "Resource Library", "Student Analytics"].map(
+              {["Perencana Pelajaran", "Pembangun Silabus", "Alat Penilaian", "Perpustakaan Sumber Daya", "Analisis Siswa"].map(
                 (item) => (
                   <li key={item}>
                     <Link
@@ -66,9 +66,9 @@ export function Footer() {
 
           {/* Column 3: Company */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-foreground dark:text-white">Company</h4>
+            <h4 className="text-lg font-semibold text-foreground dark:text-white">Perusahaan</h4>
             <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Press", "Partners", "Contact Us"].map((item) => (
+              {["Tentang Kami", "Karir", "Blog", "Pers", "Mitra", "Hubungi Kami"].map((item) => (
                 <li key={item}>
                   <Link
                     href="#"
@@ -83,7 +83,7 @@ export function Footer() {
 
           {/* Column 4: Contact & Social */}
           <div className="space-y-6">
-            <h4 className="text-lg font-semibold text-foreground dark:text-white">Contact</h4>
+            <h4 className="text-lg font-semibold text-foreground dark:text-white">Kontak</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground dark:text-gray-300">
                 <Mail className="w-4 h-4 text-primary" />
@@ -100,7 +100,7 @@ export function Footer() {
             </ul>
 
             <div className="space-y-3">
-              <h4 className="font-medium text-foreground dark:text-white">Follow us</h4>
+              <h4 className="font-medium text-foreground dark:text-white">Ikuti kami</h4>
               <div className="flex gap-4">
                 {[
                   { icon: Facebook, label: "Facebook" },
