@@ -76,12 +76,12 @@ const students = [
 
 // Sample class data
 const classes = [
-  { id: "10A", name: "Class 10A" },
-  { id: "10B", name: "Class 10B" },
-  { id: "11A", name: "Class 11A" },
-  { id: "11B", name: "Class 11B" },
-  { id: "12A", name: "Class 12A" },
-  { id: "12B", name: "Class 12B" },
+  { id: "10A", name: "Kelas 10A" },
+  { id: "10B", name: "Kelas 10B" },
+  { id: "11A", name: "Kelas 11A" },
+  { id: "11B", name: "Kelas 11B" },
+  { id: "12A", name: "Kelas 12A" },
+  { id: "12B", name: "Kelas 12B" },
 ]
 
 export default function AttendancePage() {
@@ -143,21 +143,21 @@ export default function AttendancePage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Attendance Management
+            Manajemen Kehadiran
           </h1>
-          <p className="text-muted-foreground mt-1">Record and track student attendance</p>
+          <p className="text-muted-foreground mt-1">Catat dan pantau kehadiran siswa</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" className="gap-2">
             <Download className="h-4 w-4" />
-            Export
+            Ekspor
           </Button>
           <Button
             className="gap-2 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
             onClick={handleSaveAttendance}
           >
             <Check className="h-4 w-4" />
-            Save Attendance
+            Simpan Kehadiran
           </Button>
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function AttendancePage() {
           <Card>
             <CardHeader className="pb-3">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <CardTitle>Daily Attendance</CardTitle>
+                <CardTitle>Kehadiran Harian</CardTitle>
                 <div className="flex flex-wrap gap-2">
                   <Popover>
                     <PopoverTrigger asChild>
@@ -183,7 +183,7 @@ export default function AttendancePage() {
 
                   <Select value={selectedClass} onValueChange={setSelectedClass}>
                     <SelectTrigger className="w-[140px]">
-                      <SelectValue placeholder="Select class" />
+                      <SelectValue placeholder="Pilih kelas" />
                     </SelectTrigger>
                     <SelectContent>
                       {classes.map((cls) => (
@@ -196,7 +196,7 @@ export default function AttendancePage() {
                 </div>
               </div>
               <CardDescription>
-                Showing attendance for {format(date, "MMMM d, yyyy")} - Class {selectedClass}
+                Menampilkan kehadiran untuk {format(date, "MMMM d, yyyy")} - Kelas {selectedClass}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -204,7 +204,7 @@ export default function AttendancePage() {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
-                    placeholder="Search students..."
+                    placeholder="Cari siswa..."
                     className="pl-9"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -217,10 +217,10 @@ export default function AttendancePage() {
 
               <div className="rounded-md border">
                 <div className="grid grid-cols-12 bg-muted/50 p-3 text-sm font-medium">
-                  <div className="col-span-5">Student</div>
+                  <div className="col-span-5">Siswa</div>
                   <div className="col-span-3 text-center">Status</div>
-                  <div className="col-span-2 text-center">Time</div>
-                  <div className="col-span-2 text-center">Actions</div>
+                  <div className="col-span-2 text-center">Waktu</div>
+                  <div className="col-span-2 text-center">Aksi</div>
                 </div>
                 <div className="divide-y">
                   {filteredStudents.map((student) => (
@@ -245,7 +245,10 @@ export default function AttendancePage() {
                             student.attendance.status === "excused" && "bg-blue-500",
                           )}
                         >
-                          {student.attendance.status}
+                          {student.attendance.status === "present" && "Hadir"}
+                          {student.attendance.status === "late" && "Terlambat"}
+                          {student.attendance.status === "absent" && "Tidak Hadir"}
+                          {student.attendance.status === "excused" && "Izin"}
                         </Badge>
                       </div>
                       <div className="col-span-2 text-center text-sm">{student.attendance.time || "-"}</div>
@@ -288,7 +291,7 @@ export default function AttendancePage() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <div className="text-sm text-muted-foreground">
-                Showing {filteredStudents.length} of {students.length} students
+                Menampilkan {filteredStudents.length} dari {students.length} siswa
               </div>
               <div className="flex gap-1">
                 <Button variant="outline" size="icon" disabled>
@@ -305,14 +308,14 @@ export default function AttendancePage() {
         <div className="md:col-span-1 animate-in slide-in-from-right duration-300 delay-200">
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Attendance Summary</CardTitle>
-              <CardDescription>Class {selectedClass}</CardDescription>
+              <CardTitle className="text-base">Ringkasan Kehadiran</CardTitle>
+              <CardDescription>Kelas {selectedClass}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-sm">
-                    <span>Present</span>
+                    <span>Hadir</span>
                     <span className="font-medium">{attendanceStats.present}</span>
                   </div>
                   <div className="mt-1 h-2 w-full rounded-full bg-muted">
@@ -324,7 +327,7 @@ export default function AttendancePage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm">
-                    <span>Late</span>
+                    <span>Terlambat</span>
                     <span className="font-medium">{attendanceStats.late}</span>
                   </div>
                   <div className="mt-1 h-2 w-full rounded-full bg-muted">
@@ -336,7 +339,7 @@ export default function AttendancePage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm">
-                    <span>Absent</span>
+                    <span>Tidak Hadir</span>
                     <span className="font-medium">{attendanceStats.absent}</span>
                   </div>
                   <div className="mt-1 h-2 w-full rounded-full bg-muted">
@@ -348,7 +351,7 @@ export default function AttendancePage() {
                 </div>
                 <div>
                   <div className="flex justify-between text-sm">
-                    <span>Excused</span>
+                    <span>Izin</span>
                     <span className="font-medium">{attendanceStats.excused}</span>
                   </div>
                   <div className="mt-1 h-2 w-full rounded-full bg-muted">
@@ -362,7 +365,7 @@ export default function AttendancePage() {
             </CardContent>
             <CardFooter>
               <Button variant="outline" className="w-full text-xs">
-                View Monthly Report
+                Lihat Laporan Bulanan
               </Button>
             </CardFooter>
           </Card>
