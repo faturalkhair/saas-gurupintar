@@ -51,13 +51,13 @@ export default function LessonsPage() {
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-            Lessons
+            Materi Pembelajaran
           </h1>
-          <p className="text-muted-foreground mt-1">Manage your lesson plans and materials</p>
+          <p className="text-muted-foreground mt-1">Kelola rencana pembelajaran dan materi Anda</p>
         </div>
         <Button className="gap-2">
           <Plus className="h-4 w-4" />
-          Create New Lesson
+          Buat Materi Baru
         </Button>
       </div>
 
@@ -65,16 +65,16 @@ export default function LessonsPage() {
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2">
             <BookOpen className="h-5 w-5 text-primary" />
-            Lesson Plans
+            Rencana Pembelajaran
           </CardTitle>
-          <CardDescription>Browse and manage your lesson plans</CardDescription>
+          <CardDescription>Jelajahi dan kelola rencana pembelajaran Anda</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="all" className="mb-6">
             <TabsList>
-              <TabsTrigger value="all">All Lessons</TabsTrigger>
-              <TabsTrigger value="published">Published</TabsTrigger>
-              <TabsTrigger value="drafts">Drafts</TabsTrigger>
+              <TabsTrigger value="all">Semua Materi</TabsTrigger>
+              <TabsTrigger value="published">Dipublikasikan</TabsTrigger>
+              <TabsTrigger value="drafts">Draft</TabsTrigger>
             </TabsList>
           </Tabs>
 
@@ -83,7 +83,7 @@ export default function LessonsPage() {
               <Search className="text-muted-foreground h-4 w-4 flex-shrink-0" />
               <Input
                 type="text"
-                placeholder="Search lessons..."
+                placeholder="Cari materi..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="max-w-sm"
@@ -95,11 +95,11 @@ export default function LessonsPage() {
                 <SelectTrigger className="w-[150px]">
                   <div className="flex items-center gap-2">
                     <Filter className="h-4 w-4" />
-                    <span>Subject</span>
+                    <span>Mata Pelajaran</span>
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Subjects</SelectItem>
+                  <SelectItem value="all">Semua Mata Pelajaran</SelectItem>
                   {subjects.map((subject) => (
                     <SelectItem key={subject} value={subject}>
                       {subject}
@@ -116,10 +116,10 @@ export default function LessonsPage() {
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Statuses</SelectItem>
+                  <SelectItem value="all">Semua Status</SelectItem>
                   {statuses.map((status) => (
                     <SelectItem key={status} value={status}>
-                      {status}
+                      {status === "Published" ? "Dipublikasikan" : "Draft"}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -131,12 +131,12 @@ export default function LessonsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Title</TableHead>
-                  <TableHead>Subject</TableHead>
-                  <TableHead>Grade</TableHead>
-                  <TableHead>Date</TableHead>
+                  <TableHead>Judul</TableHead>
+                  <TableHead>Mata Pelajaran</TableHead>
+                  <TableHead>Kelas</TableHead>
+                  <TableHead>Tanggal</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead>Aksi</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -148,12 +148,14 @@ export default function LessonsPage() {
                       <TableCell>{lesson.grade}</TableCell>
                       <TableCell>{lesson.date}</TableCell>
                       <TableCell>
-                        <Badge variant={lesson.status === "Published" ? "default" : "secondary"}>{lesson.status}</Badge>
+                        <Badge variant={lesson.status === "Published" ? "default" : "secondary"}>
+                          {lesson.status === "Published" ? "Dipublikasikan" : "Draft"}
+                        </Badge>
                       </TableCell>
                       <TableCell>
                         <Button variant="outline" size="sm" className="rounded-full">
                           <FileText className="mr-2 h-4 w-4" />
-                          View
+                          Lihat
                         </Button>
                       </TableCell>
                     </TableRow>
@@ -161,7 +163,7 @@ export default function LessonsPage() {
                 ) : (
                   <TableRow>
                     <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                      No lessons found matching your criteria
+                      Tidak ada materi yang sesuai dengan kriteria pencarian
                     </TableCell>
                   </TableRow>
                 )}
