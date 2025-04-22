@@ -57,53 +57,53 @@ import {
 const roleData = {
   admin: {
     navItems: [
-      { title: "Dashboard", url: "/dashboard/admin", icon: LayoutDashboard },
-      { title: "Users", url: "/dashboard/admin/users", icon: Users },
-      { title: "Operators", url: "/dashboard/admin/operators", icon: Users },
-      { title: "Teachers", url: "/dashboard/admin/teachers", icon: Users },
-      { title: "Schools", url: "/dashboard/admin/schools", icon: School },
-      { title: "Pricing", url: "/dashboard/admin/pricing", icon: DollarSign },
-      { title: "Transactions", url: "/dashboard/admin/transactions", icon: CreditCard },
-      { title: "Reports", url: "/dashboard/admin/reports", icon: FileText },
-      { title: "Analytics", url: "/dashboard/admin/teacher-analytics", icon: PieChart },
-      { title: "Settings", url: "/dashboard/admin/settings", icon: Settings2 },
+      { title: "Beranda", url: "/dashboard/admin", icon: LayoutDashboard },
+      { title: "Pengguna", url: "/dashboard/admin/users", icon: Users },
+      { title: "Operator", url: "/dashboard/admin/operators", icon: Users },
+      { title: "Guru", url: "/dashboard/admin/teachers", icon: Users },
+      { title: "Sekolah", url: "/dashboard/admin/schools", icon: School },
+      { title: "Harga", url: "/dashboard/admin/pricing", icon: DollarSign },
+      { title: "Transaksi", url: "/dashboard/admin/transactions", icon: CreditCard },
+      { title: "Laporan", url: "/dashboard/admin/reports", icon: FileText },
+      { title: "Analitik", url: "/dashboard/admin/teacher-analytics", icon: PieChart },
+      { title: "Pengaturan", url: "/dashboard/admin/settings", icon: Settings2 },
     ],
     projects: [
-      { name: "User Analytics", url: "#", icon: PieChart },
-      { name: "School Performance", url: "#", icon: GalleryVerticalEnd },
+      { name: "Analitik Pengguna", url: "#", icon: PieChart },
+      { name: "Kinerja Sekolah", url: "#", icon: GalleryVerticalEnd },
     ],
   },
   operator: {
     navItems: [
-      { title: "Dashboard", url: "/dashboard/operator", icon: LayoutDashboard },
-      { title: "Teachers", url: "/dashboard/operator/teachers", icon: Users },
-      { title: "Reports", url: "/dashboard/operator/reports", icon: FileText },
-      { title: "Settings", url: "/dashboard/operator/settings", icon: Settings2 },
+      { title: "Beranda", url: "/dashboard/operator", icon: LayoutDashboard },
+      { title: "Guru", url: "/dashboard/operator/teachers", icon: Users },
+      { title: "Laporan", url: "/dashboard/operator/reports", icon: FileText },
+      { title: "Pengaturan", url: "/dashboard/operator/settings", icon: Settings2 },
     ],
     projects: [
-      { title: "Teacher Evaluations", url: "#", icon: FileText },
-      { title: "School Calendar", url: "#", icon: Calendar },
+      { title: "Evaluasi Guru", url: "#", icon: FileText },
+      { title: "Kalender Sekolah", url: "#", icon: Calendar },
     ],
   },
   teacher: {
     navItems: [
-      { title: "Dashboard", url: "/dashboard/teacher/dashboard", icon: LayoutDashboard },
-      { title: "Generate RPP", url: "/dashboard/teacher/generate/rpp", icon: FileText },
-      { title: "Generate Silabus", url: "/dashboard/teacher/syllabus", icon: FileText },
-      { title: "History", url: "/dashboard/teacher/history", icon: FileText },
-      { title: "Lessons", url: "/dashboard/teacher/lessons", icon: BookOpen },
-      { title: "Schedule", url: "/dashboard/teacher/schedule", icon: Calendar },
-      { title: "Reports", url: "/dashboard/teacher/reports", icon: FileText },
-      { title: "Settings", url: "/dashboard/teacher/settings", icon: Settings2 },
+      { title: "Beranda", url: "/dashboard/teacher/dashboard", icon: LayoutDashboard },
+      { title: "Buat RPP", url: "/dashboard/teacher/generate/rpp", icon: FileText },
+      { title: "Buat Silabus", url: "/dashboard/teacher/syllabus", icon: FileText },
+      { title: "Riwayat", url: "/dashboard/teacher/history", icon: FileText },
+      { title: "Pelajaran", url: "/dashboard/teacher/lessons", icon: BookOpen },
+      { title: "Jadwal", url: "/dashboard/teacher/schedule", icon: Calendar },
+      { title: "Laporan", url: "/dashboard/teacher/reports", icon: FileText },
+      { title: "Pengaturan", url: "/dashboard/teacher/settings", icon: Settings2 },
     ],
     projects: [
-      { title: "Lesson Plans", url: "#", icon: BookOpen },
-      { title: "Student Progress", url: "#", icon: GalleryVerticalEnd },
+      { title: "Rencana Pelajaran", url: "#", icon: BookOpen },
+      { title: "Perkembangan Siswa", url: "#", icon: GalleryVerticalEnd },
     ],
   },
   headmaster: {
     navItems: [
-      { title: "Dashboard", url: "/dashboard/headmaster", icon: LayoutDashboard },
+      { title: "Beranda", url: "/dashboard/headmaster", icon: LayoutDashboard },
       { title: "Guru", url: "/dashboard/headmaster/teachers", icon: Users },
       { title: "Operator", url: "/dashboard/headmaster/operators", icon: Users },
       { title: "Informasi Sekolah", url: "/dashboard/headmaster/school-info", icon: School },
@@ -193,7 +193,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
           <div className="relative group">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-primary" />
             <Input
-              placeholder="Search..."
+              placeholder="Cari..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-9 border-border/20 rounded-xl h-10 focus-visible:ring-primary/20 bg-muted/30 transition-all focus-visible:bg-white dark:focus-visible:bg-gray-800"
@@ -207,7 +207,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
               <div>
                 <div className="px-4 py-2">
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
-                    Navigation
+                    Navigasi
                   </h3>
                 </div>
                 <SidebarMenu>
@@ -259,7 +259,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
                 <div>
                   <div className="px-4 py-2">
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
-                      Recent Projects
+                      Proyek Terbaru
                     </h3>
                   </div>
                   <SidebarMenu>
@@ -316,7 +316,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
             onClick={handleLogout}
           >
             <LogOut className="h-4 w-4" />
-            <span>Log out</span>
+            <span>Keluar</span>
           </Button>
 
           <div className="flex justify-between mt-2">
@@ -330,7 +330,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
                   <Bell className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors duration-300" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Notifications</TooltipContent>
+              <TooltipContent>Notifikasi</TooltipContent>
             </Tooltip>
 
             <Tooltip>
@@ -343,7 +343,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
                   <HelpCircle className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors duration-300" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Help</TooltipContent>
+              <TooltipContent>Bantuan</TooltipContent>
             </Tooltip>
 
             <Tooltip>
@@ -356,7 +356,7 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
                   <Settings2 className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors duration-300" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Settings</TooltipContent>
+              <TooltipContent>Pengaturan</TooltipContent>
             </Tooltip>
           </div>
         </SidebarFooter>
@@ -368,15 +368,15 @@ export function AppSidebar({ role, ...props }: AppSidebarProps) {
       <AlertDialog open={logoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
         <AlertDialogContent className="max-w-md rounded-xl">
           <AlertDialogHeader>
-            <AlertDialogTitle>Logout Confirmation</AlertDialogTitle>
+            <AlertDialogTitle>Konfirmasi Keluar</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to log out? You will need to log in again to access your account.
+              Apakah Anda yakin ingin keluar? Anda perlu masuk kembali untuk mengakses akun Anda.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter className="mt-4">
-            <AlertDialogCancel className="rounded-lg">Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="rounded-lg">Batal</AlertDialogCancel>
             <AlertDialogAction onClick={confirmLogout} className="bg-destructive hover:bg-destructive/90 rounded-lg">
-              Logout
+              Keluar
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
